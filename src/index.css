@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Tech-inspired palette */
+    --background: 222 47% 6%;
+    --foreground: 220 20% 95%;
+    
+    /* Card backgrounds */
+    --card: 223 47% 8%;
+    --card-foreground: 220 20% 95%;
+    
+    /* Interactive surfaces */
+    --popover: 223 47% 8%;
+    --popover-foreground: 220 20% 95%;
+    
+    /* Primary - Deep indigo */
+    --primary: 231 48% 20%;
+    --primary-foreground: 220 20% 95%;
+    
+    /* Secondary - Rich dark */
+    --secondary: 223 47% 12%;
+    --secondary-foreground: 220 20% 95%;
+    
+    /* Muted elements */
+    --muted: 223 47% 10%;
+    --muted-foreground: 220 10% 65%;
+    
+    /* Accent - Vibrant teal */
+    --accent: 178 78% 35%;
+    --accent-foreground: 220 20% 95%;
+    
+    /* Tech accents */
+    --electric-cyan: 189 100% 42%;
+    --neon-purple: 258 90% 66%;
+    --tech-orange: 25 95% 53%;
+    
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 20% 95%;
+    
+    /* Borders and inputs */
+    --border: 223 47% 15%;
+    --input: 223 47% 12%;
+    --ring: 178 78% 35%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(231 48% 20%), hsl(258 90% 66%));
+    --gradient-card: linear-gradient(145deg, hsl(223 47% 8%), hsl(223 47% 12%));
+    --gradient-accent: linear-gradient(90deg, hsl(178 78% 35%), hsl(189 100% 42%));
+    --gradient-tech: linear-gradient(135deg, hsl(258 90% 66%), hsl(189 100% 42%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(222 47% 6% / 0.3);
+    --shadow-glow: 0 0 30px hsl(178 78% 35% / 0.3);
+    --shadow-electric: 0 0 40px hsl(189 100% 42% / 0.2);
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  /* Tech Pattern Background */
+  .tech-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, hsl(var(--accent) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75px 75px, hsl(var(--electric-cyan) / 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-card { background: var(--gradient-card); }
+  .gradient-accent { background: var(--gradient-accent); }
+  .gradient-tech { background: var(--gradient-tech); }
+  
+  /* Glowing Effects */
+  .glow-accent {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-electric {
+    box-shadow: var(--shadow-electric);
+  }
+  
+  /* Animated Gradient Text */
+  .gradient-text {
+    background: var(--gradient-tech);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  /* Hover Animations */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 px-6;
+  }
+  
+  /* Container max width */
+  .container-custom {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+@layer utilities {
+  /* Custom font families */
+  .font-poppins { font-family: 'Poppins', sans-serif; }
+  .font-inter { font-family: 'Inter', sans-serif; }
+  
+  /* Tech accent colors */
+  .text-electric { color: hsl(var(--electric-cyan)); }
+  .text-neon { color: hsl(var(--neon-purple)); }
+  .text-tech-orange { color: hsl(var(--tech-orange)); }
+  
+  .bg-electric { background-color: hsl(var(--electric-cyan)); }
+  .bg-neon { background-color: hsl(var(--neon-purple)); }
+  .bg-tech-orange { background-color: hsl(var(--tech-orange)); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
